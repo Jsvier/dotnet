@@ -1,6 +1,8 @@
 # .NET Core Docker Alpine Production Sample (Preview)
 
-This .NET Core Docker sample demonstrates a best practice pattern for building Alpine based Docker images for .NET Core apps for production. The primary goal of Alpine is very small deployments.  Images can be pulled quicker and will have a smaller attack surface area.  The .NET Core Alpine Docker images are currently in preview. See the [.NET Core Alpine Docker Image announcement](https://github.com/dotnet/dotnet-docker-nightly/issues/500) for additional details.
+This .NET Core Docker sample demonstrates a best practice pattern for building Alpine based Docker images for .NET Core apps for production.
+
+The primary goal of Alpine is very small deployments.  Images can be pulled quicker and will have a smaller attack surface area.  The .NET Core Alpine Docker images are currently in preview. See the [.NET Core Alpine Docker Image announcement](https://github.com/dotnet/dotnet-docker-nightly/issues/500) for additional details.
 
 The [sample Dockerfile](Dockerfile) creates an .NET Core application Docker image based off of the [.NET Core Runtime Alpine Preview Docker image](https://hub.docker.com/r/microsoft/dotnet-nightly/).
 
@@ -10,11 +12,13 @@ This sample requires [Docker 17.06](https://docs.docker.com/release-notes/docker
 
 ## Getting the sample
 
-The easiest way to get the sample is by cloning the samples repository with git, using the following instructions. You can also just download the repository (it is small) as a zip from the [.NET Core Docker samples](https://github.com/dotnet/dotnet-docker-samples/) respository.
+The easiest way to get the sample is by cloning the samples repository with git, using the following instructions.
 
 ```console
 git clone https://github.com/dotnet/dotnet-docker-samples/
 ```
+
+You can also [download the repository as a zip](https://github.com/dotnet/dotnet-docker-samples/archive/master.zip).
 
 ## Build and run the sample with Docker
 
