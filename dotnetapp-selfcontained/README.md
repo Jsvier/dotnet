@@ -15,11 +15,13 @@ The sample uses an [experimental linker](https://github.com/dotnet/core/blob/mas
 
 ## Getting the sample
 
-The easiest way to get the sample is by cloning the samples repository with git, using the following instructions. You can also just download the repository (it is small) as a zip from the [.NET Core Docker samples](https://github.com/dotnet/dotnet-docker-samples/) respository.
+The easiest way to get the sample is by cloning the samples repository with git, using the following instructions.
 
 ```console
 git clone https://github.com/dotnet/dotnet-docker-samples/
 ```
+
+You can also [download the repository as a zip](https://github.com/dotnet/dotnet-docker-samples/archive/master.zip).
 
 ## Build and run the sample with Docker for Linux containers
 
