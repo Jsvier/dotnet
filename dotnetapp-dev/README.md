@@ -1,18 +1,22 @@
 # .NET Core Development Sample
 
-This .NET Core Docker sample demonstrates how to use Docker in your .NET Core development process. The sample works with both Linux and Windows containers.
+This .NET Core Docker sample demonstrates how to use Docker in your .NET Core development process. It includes multiple projects and unit testing. The sample works with both Linux and Windows containers.
 
-The [sample Dockerfile](Dockerfile) creates a .NET Core application image based off of the [.NET Core SDK Docker base image](https://hub.docker.com/r/microsoft/dotnet/). It builds and runs the application with the same image, which is a useful strategy for interative development but not optimal for production. Take a look at the [.NET Core Production Sample](../dotnetapp-prod/README.md) or [ASP.NET Core Production Sample](../aspnetapp/README.md) for production-oriented samples.
+The [sample Dockerfile](Dockerfile) creates an .NET Core application Docker image based off of the [.NET Core Runtime Docker base image](https://hub.docker.com/r/microsoft/dotnet/).
+
+It uses the [Docker multi-stage build feature](https://github.com/dotnet/announcements/issues/18) to build the sample in a container based on the larger [.NET Core SDK Docker base image](https://hub.docker.com/r/microsoft/dotnet/). It builds and tests the samples and then copies the final build result into a Docker image based on the smaller [.NET Core Docker Runtime base image](https://hub.docker.com/r/microsoft/dotnet/).
 
 This sample requires [Docker 17.06](https://docs.docker.com/release-notes/docker-ce) or later of the [Docker client](https://www.docker.com/products/docker). You need the latest Windows 10 or Windows Server 2016 to use [Windows containers](http://aka.ms/windowscontainers). The instructions assume you have the [Git](https://git-scm.com/downloads) client installed.
 
 ## Getting the sample
 
-The easiest way to get the sample is by cloning the samples repository with git, using the following instructions. You can also just download the repository (it is small) as a zip from the [.NET Core Docker samples](https://github.com/dotnet/dotnet-docker-samples/) respository.
+The easiest way to get the sample is by cloning the samples repository with git, using the following instructions.
 
 ```console
 git clone https://github.com/dotnet/dotnet-docker-samples/
 ```
+
+You can also [download the repository as a zip](https://github.com/dotnet/dotnet-docker-samples/archive/master.zip).
 
 ## Build and run the sample with Docker
 
@@ -25,6 +29,38 @@ docker run --rm dotnetapp-dev Hello .NET Core from Docker
 ```
 
 Note: The instructions above work for both Linux and Windows containers. The .NET Core docker images use [multi-arch tags](https://github.com/dotnet/announcements/issues/14), which abstract away different operating system choices for most use-cases.
+
+## Build and run sample for unit testing with Docker
+
+The sample runs unit tests as part of `docker build`. That's useful as a means of getting feedback during `build` (the build will fail), but there isn't an easy way to get the test logs. The sample exposes a test stage that you can build and then run explicity. Using volume mounting, you can cause unit tests logs to be written to your local disk for viewing outside of a container.
+
+You can build and run the sample in Docker using the following commands. The instructions assume that you are in the root of the repository. They also assume a location for the sample.
+
+```console
+cd dotnetapp-dev
+docker build --target test -t dotnetapp-dev:test .
+```
+
+You can run the sample on **Windows** using Windows containers using the following command.
+
+```console
+docker run -ti -v C:\git\dotnet-docker-samples\dotnetapp-dev\TestResults:C:\app\bottests\TestResults app:test
+```
+
+You can run the sample on **Windows** using Linux containers using the following command.
+
+```console
+docker run -ti -v C:\git\dotnet-docker-samples\dotnetapp-dev\TestResults:/app/bottests/TestResults app:test
+```
+
+You can run the sample on **macOS** or **Linux** using the following command.
+
+```console
+docker run -ti -v ./TestResults:/app/bottests/TestResults app:test
+```
+
+Note: The instructions above work for both Linux and Windows containers. The .NET Core docker images use [multi-arch tags](https://github.com/dotnet/announcements/issues/14), which abstract away different operating system choices for most use-cases.
+
 
 ## Build and run the sample locally
 
