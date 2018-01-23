@@ -32,7 +32,7 @@ Note: The instructions above work for both Linux and Windows containers. The .NE
 
 ## Build and run sample for unit testing with Docker
 
-The sample runs unit tests as part of `docker build`. That's useful as a means of getting feedback during `build` (the build will fail), but there isn't an easy way to get the test logs. The sample exposes a test stage that you can build and then run explicity. Using volume mounting, you can cause unit tests logs to be written to your local disk for viewing outside of a container.
+The sample runs unit tests as part of `docker build`. That's useful as a means of getting feedback during `build` (the build will fail), but there isn't an easy way to get the test logs. The sample exposes a test stage that you can build and then run explicity. Using [volume mounting](https://docs.docker.com/engine/admin/volumes/volumes/), you can cause unit tests logs to be written to your local disk for viewing outside of a container.
 
 You can build and run the sample in Docker using the following commands. The instructions assume that you are in the root of the repository. They also assume a location for the sample.
 
