@@ -4,7 +4,7 @@ This .NET Core Docker sample demonstrates a best practice pattern for building A
 
 The primary goal of Alpine is very small deployments.  Images can be pulled quicker and will have a smaller attack surface area.  The .NET Core Alpine Docker images are currently in preview. See the [.NET Core Alpine Docker Image announcement](https://github.com/dotnet/dotnet-docker-nightly/issues/500) for additional details.
 
-The [sample Dockerfile](Dockerfile) creates an .NET Core application Docker image based off of the [.NET Core Runtime Alpine Preview Docker image](https://hub.docker.com/r/microsoft/dotnet-nightly/).
+The [sample Dockerfile](Dockerfile) creates a .NET Core application Docker image based off of the [.NET Core Runtime Alpine Preview Docker image](https://hub.docker.com/r/microsoft/dotnet-nightly/).
 
 It uses the [Docker multi-stage build feature](https://github.com/dotnet/announcements/issues/18) to build the sample in a container based on the larger [.NET Core SDK Docker base image](https://hub.docker.com/r/microsoft/dotnet/) and then copies the final build result into a Docker image based on the smaller [.NET Core Docker Runtime base image](https://hub.docker.com/r/microsoft/dotnet/). The SDK image contains tools that are required to build applications while the runtime image does not.
 

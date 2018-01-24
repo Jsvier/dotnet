@@ -4,7 +4,7 @@ This .NET Core Docker sample demonstrates a best practice pattern for building D
 
 This [sample Dockerfile for Linux](Dockerfile) creates an .NET Core application image based off the [.NET Core Runtime Dependencies Docker base image](https://hub.docker.com/r/microsoft/dotnet/), which is based on [Debian 9 (Stretch) base image](https://hub.docker.com/_/debian/).
 
-This [sample Dockerfile for Windows Nanoserver](Dockerfile.nano) creates an .NET Core application image based off the [Windows Nanoserver base image](https://hub.docker.com/r/microsoft/nanoserver/).
+This [sample Dockerfile for Windows Nanoserver](Dockerfile.nano) creates a .NET Core application image based off the [Windows Nanoserver base image](https://hub.docker.com/r/microsoft/nanoserver/).
 
 The sample uses the [Docker multi-stage build feature](https://github.com/dotnet/announcements/issues/18) for Linux and Windows to build the sample in a container based on the larger [.NET Core SDK Docker base image](https://hub.docker.com/r/microsoft/dotnet/) and then copies the final build result into a smaller Docker image based on the appropriate base image mentioned above (based whether you are using Windows or Linux containers).
 
