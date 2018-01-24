@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetapp", "dotnetapp\dotnetapp.csproj", "{694D3029-F31E-4945-8972-557A899D5CDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "botutils", "botutils\botutils.csproj", "{39530D58-BE7D-49CC-A0B0-D3502631DF7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "utils", "utils\utils.csproj", "{39530D58-BE7D-49CC-A0B0-D3502631DF7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bottests", "bottests\bottests.csproj", "{150F5901-62BF-4F37-B3E7-6A61C73ACFB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{150F5901-62BF-4F37-B3E7-6A61C73ACFB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

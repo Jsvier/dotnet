@@ -2,7 +2,7 @@
 
 namespace botutils
 {
-    public class ReverseUtil
+    public static class ReverseUtil
     {
         public static string ReverseString(string input)
         {
