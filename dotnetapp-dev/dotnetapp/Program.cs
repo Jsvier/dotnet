@@ -14,7 +14,7 @@ public static class Program
           message = String.Join(" ",args);
         }
 
-        var reversedString = ReverseUtil.ReverseString(message);
+        var reversedString = $"Reversed string: {ReverseUtil.ReverseString(message)}";
         WriteLine(GetBot(reversedString));
         WriteLine("**Environment**");
         WriteLine($"Platform: .NET Core 2.0");

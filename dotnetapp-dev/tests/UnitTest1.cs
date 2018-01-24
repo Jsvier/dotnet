@@ -10,7 +10,7 @@ namespace bottests
         public void Test1()
         {
             var inputString = "Dotnet-bot: Welcome to using .NET Core!";
-            var expectedString = "eroC TEN. gnisu ot emocleW :tob-tentoD";
+            var expectedString = "!eroC TEN. gnisu ot emocleW :tob-tentoD";
             var actualString = ReverseUtil.ReverseString(inputString);
             Assert.True(actualString == expectedString, "The input string was not reversed correctly.");
         }
