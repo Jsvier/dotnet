@@ -30,7 +30,7 @@ docker run --rm dotnetapp-dev Hello .NET Core from Docker
 
 Note: The instructions above work for both Linux and Windows containers. The .NET Core docker images use [multi-arch tags](https://github.com/dotnet/announcements/issues/14), which abstract away different operating system choices for most use-cases.
 
-## Run the unit test as part of `docker build`
+## Run unit tests as part of `docker build`
 
 The unit tests will have run as part of the the `docker build` command listed above. You can make the unit test fail by changing the [unit test](tests/UnitTest1.cs) to match the test below.
 
@@ -51,7 +51,7 @@ After changing the test, re-run `docker build` so that you can see the failure, 
 docker build -t dotnetapp-dev .
 ```
 
-## Run the unit test as part of `docker run`
+## Run unit tests as part of `docker run`
 
 The sample runs unit tests as part of `docker build`, as described above. That's useful as a means of getting feedback during `build` (the build will fail), but there isn't an easy way to get the test logs. The sample exposes a test stage that you can build and then run explicity. You can cause unit tests logs to be written to your local disk for viewing outside of a container by using [volume mounting](https://docs.docker.com/engine/admin/volumes/volumes/).
 
@@ -77,7 +77,7 @@ docker run --rm -v C:\git\dotnet-docker-samples\dotnetapp-dev\TestResults:/app/t
 You can run the sample on **macOS** or **Linux** using the following command.
 
 ```console
-docker run --rm -v ./TestResults:/app/tests/TestResults dotnetapp-dev:test
+docker run --rm -v "$(pwd)"/TestResults:/app/tests/TestResults dotnetapp-dev:test
 ```
 
 You should find a `.trx` file in the TestResults folder. You can open this file in Visual Studio to see the results of the test run. You can open in Visual Studio (File -> Open -> File)or double-click on the TRX file (if you have Visual Studio installed). There are other TRX file viewers available as well that you can search for.
